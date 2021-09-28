@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    Layout = null;
+}
+@model PhyndConsumer.Models.User
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Phynd | Home</title>
+    <style>
+        #login-div {
+            position: absolute;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #0094ff;
+            padding: 10px 10px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="login-div">
+        <table>
+            Hello
+            <h1>@HttpContextAccessor.HttpContext.Session.GetString("name")</h1>
+        
+            <a href="@Url.Action("LogOut","Login")">Logout</a>
+        </table>
+    </div>
+</body>
+
+</html>
